@@ -1,0 +1,30 @@
+.list__item {
+  display: flex;
+  flex-basis: 320px;
+  border: solid 1px #eee;
+  margin: 1.2rem;
+  padding: 1rem;
+  font-size: 12px;/* todo base font + rem*/
+}
+
+.card {
+  flex-shrink: 0;
+  width: 4rem;
+  height: 6rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-right: 0.5rem;
+}
+
+.info {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.info__symbol {
+  text-align: left;
+  margin-bottom: 0.3rem;
+}

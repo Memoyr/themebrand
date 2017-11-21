@@ -1,0 +1,23 @@
+.icon {
+  width: 30px;
+  height: 30px;
+  fill:red;
+}
+
+.icon-stroke {
+  width: 32px;
+  height: 32px;
+  fill: transparent;
+  stroke: black;
+}
+
+.icon--small {
+  width: 20px;
+  height: 20px;
+}
+
+
+.icon--large {
+  width: 60px;
+  height: 60px;
+}
