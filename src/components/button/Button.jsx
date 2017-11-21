@@ -1,35 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import './Button.css';
+
+//import './Button.css';
+
+const NiceButton = styled.button`
+	padding: .5em 1.5em;
+	background-color: #fff;
+	border: 1px solid currentColor;
+	border-radius: .3em;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	color: ${props => props.theme.primary};
+	&[disabled] {
+		opacity: 0.35;
+		cursor: default;
+	}
+`;
 
 /**
  * The only true button.
  */
-export default function Button({ color, size, onClick, disabled, children }) {
+export default function Button({ size, onClick, disabled, children }) {
 	const styles = {
-		color,
 		fontSize: Button.sizes[size],
 	};
 
 	return (
-		<button className="button" style={styles} onClick={onClick} disabled={disabled}>
+		<NiceButton style={styles} onClick={onClick} disabled={disabled}>
 			{children}
-		</button>
+		</NiceButton>
 	);
 }
+
 Button.propTypes = {
-	/** Button label */
 	children: PropTypes.node.isRequired,
-	/** The color for the button */
-	color: PropTypes.string,
-	/** The size of the button */
 	size: PropTypes.oneOf(['small', 'normal', 'large']),
-	/** Disable button */
 	disabled: PropTypes.bool,
-	/** Gets called when the user clicks on the button */
 	onClick: PropTypes.func,
 };
+
 Button.defaultProps = {
 	color: '#333',
 	size: 'normal',
@@ -38,6 +50,7 @@ Button.defaultProps = {
 		console.log('You have clicked me!', event.target);
 	},
 };
+
 Button.sizes = {
 	small: '10px',
 	normal: '14px',

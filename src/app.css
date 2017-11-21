@@ -1,18 +1,6 @@
-/* NOTE:  THIS A POC - CSS have to be improved !!!  */
 
 .app {
   text-align: center;
-}
-
-.app-header {
-  background-color: #222;
-  height: 50px;
-  padding: 20px;
-  color: white;
-}
-
-.app-title {
-  font-size: 1.5em;
 }
 
 .app-intro {
@@ -21,32 +9,4 @@
 
 .content {
   margin: 0 2rem;
-}
-
-.list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.documentation {
-  margin: 2rem 0;
-  text-align: right;
-  list-style-type: none;
-  padding-left: 0;
-  margin-left: 0;
-}
-
-.documentation__link {
-  color: #0987bb;
-  margin-bottom: .3rem;
-  display: inline-block;
-}
-
-.styleguide-link {
-  text-align: right;
-  display: block;
-  color: #0987bb;
 }
