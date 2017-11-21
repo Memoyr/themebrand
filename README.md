@@ -1,4 +1,4 @@
-### Icon kit system
+### Dynamic Theme styles with Styled-Components
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). And used eject solution.
 
