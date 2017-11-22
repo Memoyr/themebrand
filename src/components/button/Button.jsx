@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-
-//import './Button.css';
-
-const NiceButton = styled.button`
+const PrimaryButton = styled.button`
 	padding: .5em 1.5em;
 	background-color: #fff;
 	border: 1px solid currentColor;
@@ -20,18 +17,15 @@ const NiceButton = styled.button`
 	}
 `;
 
-/**
- * The only true button.
- */
 export default function Button({ size, onClick, disabled, children }) {
 	const styles = {
 		fontSize: Button.sizes[size],
 	};
 
 	return (
-		<NiceButton style={styles} onClick={onClick} disabled={disabled}>
+		<PrimaryButton style={styles} onClick={onClick} disabled={disabled}>
 			{children}
-		</NiceButton>
+		</PrimaryButton>
 	);
 }
 
@@ -43,7 +37,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-	color: '#333',
 	size: 'normal',
 	onClick: event => {
 		// eslint-disable-next-line no-console

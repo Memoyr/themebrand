@@ -6,6 +6,14 @@ import Button from './components/button/Button.jsx';
 
 import './app.css';
 
+const Container = styled.div`
+  height: 100vh;
+`;
+
+const Content = styled.div`
+  margin: 0 5rem;
+`;
+
 class App extends Component {
 
   constructor (props) {
@@ -20,13 +28,14 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={this.state.brand}>
-        <div className="app">
-          <Header BrandName={this.state.name}/>
-          <Button onClick={() => this.switchBrand(spiritTheme, 'Spirit')}>Upgrade and buy Spirit</Button>
-          <Button onClick={() => this.switchBrand(cloudTheme, 'Cloud')}>Upgrade and buy Cloud</Button>
-          <Button onClick={() => this.switchBrand(marketTheme, 'Market')}>Back to Market</Button>
-
-        </div>
+        <Container>
+          <Header brandName={this.state.name} color/>
+          <Content>
+            <Button onClick={() => this.switchBrand(spiritTheme, 'Spirit')}>Spirit</Button>
+            <Button onClick={() => this.switchBrand(cloudTheme, 'Cloud')}>Cloud</Button>
+            <Button onClick={() => this.switchBrand(marketTheme, 'Market')}>Market</Button>
+          </Content>
+        </Container>
       </ThemeProvider>
     );
   }
