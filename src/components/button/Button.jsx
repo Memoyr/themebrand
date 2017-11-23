@@ -10,6 +10,7 @@ const PrimaryButton = styled.button`
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
+	height: 28px;
 	color: ${props => props.theme.primary};
 	&[disabled] {
 		opacity: 0.35;
@@ -18,12 +19,9 @@ const PrimaryButton = styled.button`
 `;
 
 export default function Button({ size, onClick, disabled, children }) {
-	const styles = {
-		fontSize: Button.sizes[size],
-	};
 
 	return (
-		<PrimaryButton style={styles} onClick={onClick} disabled={disabled}>
+		<PrimaryButton onClick={onClick} disabled={disabled}>
 			{children}
 		</PrimaryButton>
 	);
@@ -42,10 +40,4 @@ Button.defaultProps = {
 		// eslint-disable-next-line no-console
 		console.log('You have clicked me!', event.target);
 	},
-};
-
-Button.sizes = {
-	small: '10px',
-	normal: '14px',
-	large: '18px',
 };

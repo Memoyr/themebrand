@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from '../Icon/Icon.jsx';
 
-
 const Bar = styled.header`
-  background-color: black;
+  background-color: ${props => props.theme.gradient};
   height: 30px;
   padding: 20px;
   color: white;
   margin-bottom: 2rem;
-
 `;
 
 const Title = styled.h1`
@@ -26,17 +24,18 @@ const AuthContainer = styled.div`
 `;
 
 
-const Header = ({brandName}) => (
+const Header = ({...props}) => (
  <Bar>
-   <Title>{`Brand ${brandName}`}</Title>
+   <Title>{`Brand ${props.brandName}`}</Title>
    <AuthContainer>
-    <Icon symbol="person_48px-bkg-light" size="small" name="user" />
+      <Icon symbol="person_48px-bkg-light" size="small" name="user" />
    </AuthContainer>
  </Bar>
 );
 
-export default Header;
 
 Header.propTypes = {
 	brandName: PropTypes.string.isRequired,
 };
+
+export default Header;

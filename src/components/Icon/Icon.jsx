@@ -6,8 +6,8 @@ const files = require.context('!svg-sprite-loader!svgo-loader?useConfig=svgoConf
 files.keys().forEach(files);
 
 const SymbolIcon = styled.svg`
-  width: ${props => (props.size === 'small') ? '20px' : (props.size === 'large') ? '60px' : '10px'};
-  height: ${props => (props.size === 'small') ? '20px' : (props.size === 'large') ? '60px' : '10px'};
+  width: ${props => (props.size === 'small') ? '20px' : (props.size === 'medium') ? '40px' : (props.size === 'large') ? '60px' : '10px'};
+  height: ${props => (props.size === 'small') ? '20px' : (props.size === 'medium') ? '40px' : (props.size === 'large') ? '60px' : '10px'};
   fill: ${props => props.stroke ? 'transparent' : props.theme.primary};
   stroke: ${props => props.stroke && (props.theme.primary) ? props.theme.primary : (props.stroke && (!props.theme.primary)) ? 'black': '' };
 `;
@@ -27,7 +27,7 @@ Icon.defaultProps = {
 Icon.propTypes = {
     stroke: PropTypes.bool,
     symbol: PropTypes.string.isRequired,
-    size: PropTypes.oneOf(['small', 'large']),
+    size: PropTypes.oneOf(['small','medium', 'large']),
     name: PropTypes.string.isRequired
 };
 

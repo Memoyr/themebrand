@@ -3,6 +3,8 @@ import styled, { ThemeProvider } from 'styled-components';
 import Header from './components/header/Header.jsx';
 import { marketTheme, spiritTheme, cloudTheme } from './constants/theme.js';
 import Button from './components/button/Button.jsx';
+import BrandBage from './components/BrandBadge/BrandBadge';
+import SideMenu from './components/SideMenu/SideMenu';
 
 import './app.css';
 
@@ -20,7 +22,8 @@ class App extends Component {
     super(props)
     this.state = {
       brand: marketTheme,
-      name: 'Market'
+      name: 'M',
+      sideMenuOpen: false
     }
   }
 
@@ -31,9 +34,12 @@ class App extends Component {
         <Container>
           <Header brandName={this.state.name} color/>
           <Content>
-            <Button onClick={() => this.switchBrand(spiritTheme, 'Spirit')}>Spirit</Button>
-            <Button onClick={() => this.switchBrand(cloudTheme, 'Cloud')}>Cloud</Button>
-            <Button onClick={() => this.switchBrand(marketTheme, 'Market')}>Market</Button>
+            <Button onClick={() => this.switchBrand(spiritTheme, 'S')}>S</Button>
+            <Button onClick={() => this.switchBrand(cloudTheme, 'C')}>C</Button>
+            <Button onClick={() => this.switchBrand(marketTheme, 'M')}>M</Button>
+
+            <BrandBage onClick={() => this.openSideMenu(this.state.sideMenuOpen ? false : true)} />
+            <SideMenu open={this.state.sideMenuOpen}/>
           </Content>
         </Container>
       </ThemeProvider>
@@ -42,6 +48,10 @@ class App extends Component {
 
   switchBrand(newBrand, newName) {
    this.setState({brand: newBrand, name: newName})
+  }
+
+  openSideMenu(openState) {
+   this.setState({sideMenuOpen: openState})
   }
 
 }
