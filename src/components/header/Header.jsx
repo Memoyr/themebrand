@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Icon from '../Icon/Icon.jsx';
 
 const Bar = styled.header`
-  background-color: ${props => props.theme.gradient};
+  background-color: ${props => props.theme.gradient ? props.theme.gradient : 'black'};
   height: 30px;
   padding: 20px;
   color: white;

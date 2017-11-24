@@ -8,7 +8,7 @@ files.keys().forEach(files);
 const SymbolIcon = styled.svg`
   width: ${props => (props.size === 'small') ? '20px' : (props.size === 'medium') ? '40px' : (props.size === 'large') ? '60px' : '10px'};
   height: ${props => (props.size === 'small') ? '20px' : (props.size === 'medium') ? '40px' : (props.size === 'large') ? '60px' : '10px'};
-  fill: ${props => props.stroke ? 'transparent' : props.theme.primary};
+  fill: ${props => props.stroke ? 'transparent' : props.theme.primary ?  props.theme.primary : 'pink'};
   stroke: ${props => props.stroke && (props.theme.primary) ? props.theme.primary : (props.stroke && (!props.theme.primary)) ? 'black': '' };
 `;
 
