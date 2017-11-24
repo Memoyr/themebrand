@@ -27,14 +27,26 @@ const CloseButton = styled.button`
 `;
 
 
-const SideMenu = ({...props}) => (
-  <Container open={props.open}>
-    <CloseButton onClick={() => console.log('test')} >
-      <Icon symbol="person_48px-bkg-light" />
-    </CloseButton>
-  </Container>
-);
+class SideMenu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
+  handleChange(e) {
+    this.props.onVisibilityChange(e);
+  }
+
+  render() {
+    return (
+      <Container open={this.props.open}>
+        <CloseButton onClick={this.handleChange(false)} >
+          <Icon symbol="person_48px-bkg-light" />
+        </CloseButton>
+      </Container>
+    );
+  }
+}
 
 
 SideMenu.propTypes = {

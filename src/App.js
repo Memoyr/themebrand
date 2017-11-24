@@ -20,11 +20,21 @@ class App extends Component {
 
   constructor (props) {
     super(props)
+    this.handleMenuChange = this.handleMenuChange.bind(this);
+
     this.state = {
       brand: marketTheme,
       name: 'M',
       sideMenuOpen: false
     }
+  }
+
+  handleMenuChange(e) {
+    this.setState({sideMenuOpen: e});
+  }
+
+  switchBrand(newBrand, newName) {
+   this.setState({brand: newBrand, name: newName})
   }
 
   render() {
@@ -38,20 +48,12 @@ class App extends Component {
             <Button onClick={() => this.switchBrand(cloudTheme, 'C')}>C</Button>
             <Button onClick={() => this.switchBrand(marketTheme, 'M')}>M</Button>
 
-            <BrandBage onClick={() => this.openSideMenu(this.state.sideMenuOpen ? false : true)} />
-            <SideMenu open={this.state.sideMenuOpen}/>
+            <BrandBage onClick={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
+            <SideMenu open={this.state.sideMenuOpen} onVisibilityChange={this.handleMenuChange} />
           </Content>
         </Container>
       </ThemeProvider>
     );
-  }
-
-  switchBrand(newBrand, newName) {
-   this.setState({brand: newBrand, name: newName})
-  }
-
-  openSideMenu(openState) {
-   this.setState({sideMenuOpen: openState})
   }
 
 }
