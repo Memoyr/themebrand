@@ -2,15 +2,21 @@ import { generator } from 'uigradients';
 
 export const marketTheme = {
   primary: 'red',
-  gradient: generator({gradient: 'intuitive_purple'})
+  gradient: generator({gradient: 'intuitive_purple'}),
+  black: '#122844',
+  gray: '#999999'
 };
 
 export const spiritTheme = {
   primary: 'blue',
-  gradient: generator({gradient: 'autumn'})
+  gradient: generator({gradient: 'autumn'}),
+  black: '#122844',
+  gray: '#818b99'
 };
 
 export const cloudTheme = {
   primary: 'green',
-  gradient: generator({gradient: 'aqua_marine'})
+  gradient: generator({gradient: 'aqua_marine'}),
+  black: 'black',
+  gray: '#bbbdbf'
 };

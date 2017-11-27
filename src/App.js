@@ -42,7 +42,7 @@ class App extends Component {
     return (
       <ThemeProvider theme={this.state.brand}>
         <Container>
-          <Header brandName={this.state.name} color/>
+          <Header brandName={this.state.name} onVisibilityChange={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
           <Content>
             <Button onClick={() => this.switchBrand(spiritTheme, 'S')}>S</Button>
             <Button onClick={() => this.switchBrand(cloudTheme, 'C')}>C</Button>

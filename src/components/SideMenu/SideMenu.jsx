@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from '../Icon/Icon';
+import { rgba } from 'polished';
+
 
 const Container = styled.div`
   color: #5d5d5d;
@@ -24,6 +26,19 @@ const Container = styled.div`
 const CloseButton = styled.button`
   display: flex;
   margin-left: auto;
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  box-shadow: none;
+  width: 42px;
+  height: 42px;
+
+  &:hover {
+    cursor: pointer;
+    > svg {
+      stroke: ${props => props.theme.primary ? rgba(props.theme.black, 0.6) : 'black'};
+    }
+  }
 `;
 
 
@@ -41,7 +56,7 @@ class SideMenu extends React.Component {
     return (
       <Container open={this.props.open}>
         <CloseButton onClick={this.handleChange} >
-          <Icon symbol="person_48px-bkg-light" />
+          <Icon symbol="cross_20px-bkg-light" stroke size="medium"/>
         </CloseButton>
       </Container>
     );
