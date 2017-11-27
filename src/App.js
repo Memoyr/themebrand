@@ -29,8 +29,8 @@ class App extends Component {
     }
   }
 
-  handleMenuChange(e) {
-    this.setState({sideMenuOpen: e});
+  handleMenuChange(visibility) {
+    this.setState({sideMenuOpen: visibility});
   }
 
   switchBrand(newBrand, newName) {
@@ -49,7 +49,7 @@ class App extends Component {
             <Button onClick={() => this.switchBrand(marketTheme, 'M')}>M</Button>
 
             <BrandBage onClick={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
-            <SideMenu open={this.state.sideMenuOpen} onVisibilityChange={this.handleMenuChange} />
+            <SideMenu open={this.state.sideMenuOpen} onVisibilityChange={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
           </Content>
         </Container>
       </ThemeProvider>

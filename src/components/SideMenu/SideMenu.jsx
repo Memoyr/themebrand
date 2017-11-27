@@ -40,7 +40,7 @@ class SideMenu extends React.Component {
   render() {
     return (
       <Container open={this.props.open}>
-        <CloseButton onClick={this.handleChange(false)} >
+        <CloseButton onClick={this.handleChange} >
           <Icon symbol="person_48px-bkg-light" />
         </CloseButton>
       </Container>
