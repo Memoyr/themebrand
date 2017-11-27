@@ -33,8 +33,6 @@ class App extends Component {
     this.setState({sideMenuOpen: visibility});
   }
 
-
-
   handleChangeBrand(newTheme) {
     (newTheme === 'spirit') ? this.handleSwitchTheme(spiritTheme, 'S') :
     (newTheme === 'market') ? this.handleSwitchTheme(marketTheme, 'M') :
@@ -55,7 +53,6 @@ class App extends Component {
             onVisibilityChange={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
           <Content>
 
-            <BrandBage onClick={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
             <SideMenu open={this.state.sideMenuOpen} onVisibilityChange={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)}
               onThemeChange={this.handleChangeBrand}
              />
@@ -68,3 +65,4 @@ class App extends Component {
 }
 
 export default App;
+//<BrandBage onClick={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />

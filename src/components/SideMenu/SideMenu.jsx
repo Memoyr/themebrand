@@ -62,7 +62,7 @@ class SideMenu extends React.Component {
     return (
       <Container open={this.props.open}>
         <CloseButton onClick={this.handleChange} >
-          <Icon symbol="cross_20px-bkg-light" stroke size="medium"/>
+          <Icon symbol="cross_20px-bkg-light" size="medium" name="close" asStroke />
         </CloseButton>
         <MenuList onThemeChange={this.handleThemeChange}/>
       </Container>

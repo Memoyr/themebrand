@@ -29,7 +29,7 @@ const Badge = styled.button`
 
 const BrandBage = ({...props}) => (
     <Badge onClick={props.onClick} >
-      <Icon symbol="logo" size="medium"/>
+      <Icon symbol="logo" size="medium" name="yo"/>
     </Badge>
 );
 

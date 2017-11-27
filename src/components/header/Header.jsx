@@ -65,7 +65,7 @@ class Header extends React.Component {
         <Title>{`Brand ${this.props.brandName}`}</Title>
         <AuthContainer>
            <SettingButton onClick={this.handleChange} >
-             <Icon symbol="gear_20px-bkg-light" size="small" name="settings" stroke />
+             <Icon symbol="gear_20px-bkg-light" size="small" name="settings" asStroke />
            </SettingButton>
         </AuthContainer>
       </Bar>
