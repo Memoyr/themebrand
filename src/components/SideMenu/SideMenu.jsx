@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from '../Icon/Icon';
 import { rgba } from 'polished';
+import MenuList from '../MenuList/MenuList';
 
 
 const Container = styled.div`
   color: #5d5d5d;
-  padding: 1.5rem;
+  padding: 10px 0;
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -25,13 +26,13 @@ const Container = styled.div`
 
 const CloseButton = styled.button`
   display: flex;
-  margin-left: auto;
   border: none;
   background-image: none;
   background-color: transparent;
   box-shadow: none;
   width: 42px;
   height: 42px;
+  margin: 0 10px 10px auto;
 
   &:hover {
     cursor: pointer;
@@ -46,10 +47,15 @@ class SideMenu extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleThemeChange = this.handleThemeChange.bind(this);
   }
 
   handleChange(e) {
     this.props.onVisibilityChange(e);
+  }
+
+  handleThemeChange(theme) {
+    this.props.onThemeChange(theme);
   }
 
   render() {
@@ -58,6 +64,7 @@ class SideMenu extends React.Component {
         <CloseButton onClick={this.handleChange} >
           <Icon symbol="cross_20px-bkg-light" stroke size="medium"/>
         </CloseButton>
+        <MenuList onThemeChange={this.handleThemeChange}/>
       </Container>
     );
   }

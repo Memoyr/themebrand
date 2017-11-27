@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from '../Icon/Icon.jsx';
+import { rgba } from 'polished';
+
 
 const Bar = styled.header`
   background-color: ${props => props.theme.gradient ? props.theme.gradient : 'black'};
@@ -34,7 +36,14 @@ const SettingButton = styled.button`
   height: 42px;
 
   &:focus {
-    //outline: none;
+    outline: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    > svg {
+      stroke: ${props => props.theme.black ? rgba(props.theme.black, 0.6) : 'black'};
+    }
   }
 
 `;
