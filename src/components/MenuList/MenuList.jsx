@@ -13,10 +13,13 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  padding: 10px 0;
+  padding: 0;
   margin: 0;
   border-bottom: solid 1px ${props => props.theme.gray ? props.theme.gray : 'black'};
   transition: all ease .5s;
+  display: flex;
+  flex-direction:row;
+
   &:first-child {
     border-top: solid 1px ${props => props.theme.gray ? props.theme.gray : 'black'};
   }
@@ -26,58 +29,28 @@ const ListItem = styled.li`
   }
 `;
 
-const ListLink = styled.a`
-  padding: 0 10px;
-  color: ${props => props.theme.blue ? props.theme.blue : 'blue'};
-  &:hover {
-    cursor: pointer;
-    color: ${props => props.theme.gray ? props.theme.gray : '#999'};
-  }
-  ${ListItem}:hover &  {
-     color: ${props => props.theme.gray ? props.theme.gray : '#999'};
-   }
-`;
+
 
 class MenuList extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.handleThemeChange = this.handleThemeChange.bind(this);
+  //  this.handleThemeChange = this.handleThemeChange.bind(this);
   }
 
   handleChange(e) {
     this.props.onVisibilityChange(e);
   }
 
-  handleThemeChange(theme) {
+  /* handleThemeChange(theme) {
     this.props.onThemeChange(theme);
-  }
-
+  } */
 
   render() {
+    const listItems = this.props.data.map((d,i) => <ListItem key={i}>{d.item}</ListItem>);
     return (
       <List>
-        <ListItem>
-          <ListLink>Settings</ListLink>
-        </ListItem>
-        <ListItem>
-          <ListLink>
-            <Button onClick={() => this.handleThemeChange('market')}>M</Button>
-          </ListLink>
-        </ListItem>
-        <ListItem>
-          <ListLink>
-            <Button onClick={() => this.handleThemeChange('spirit')}>S</Button>
-          </ListLink>
-        </ListItem>
-        <ListItem>
-          <ListLink>
-            <Button onClick={() => this.handleThemeChange('cloud')}>C</Button>
-          </ListLink>
-        </ListItem>
-        <ListItem>
-          <ListLink>Log Out</ListLink>
-        </ListItem>
+        {listItems}
       </List>
     );
   }

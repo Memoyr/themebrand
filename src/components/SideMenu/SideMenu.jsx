@@ -5,7 +5,6 @@ import Icon from '../Icon/Icon';
 import { rgba } from 'polished';
 import MenuList from '../MenuList/MenuList';
 
-
 const Container = styled.div`
   color: #5d5d5d;
   padding: 10px 0;
@@ -42,6 +41,18 @@ const CloseButton = styled.button`
   }
 `;
 
+const ListLink = styled.a`
+  padding: 10px;
+  flex: 1 1 auto;
+  color: ${props => props.theme.blue ? props.theme.blue : 'blue'};
+  transition: all ease .5s;
+  &:hover {
+    cursor: pointer;
+    color: ${props => props.theme.gray ? props.theme.gray : '#999'};
+    background-color: white;
+  }
+`;
+
 
 class SideMenu extends React.Component {
   constructor(props) {
@@ -59,12 +70,20 @@ class SideMenu extends React.Component {
   }
 
   render() {
+    const data =[
+      {"item":<ListLink>Settings</ListLink>},
+      {"item":<ListLink onClick={() => this.handleThemeChange('spirit')}>S</ListLink>},
+      {"item":<ListLink onClick={() => this.handleThemeChange('market')}>M</ListLink>},
+      {"item":<ListLink onClick={() => this.handleThemeChange('cloud')}>S</ListLink>},
+      {"item":<ListLink>Log out</ListLink>}
+    ];
+
     return (
       <Container open={this.props.open}>
         <CloseButton onClick={this.handleChange} >
           <Icon symbol="cross_20px-bkg-light" size="medium" name="close" asStroke />
         </CloseButton>
-        <MenuList onThemeChange={this.handleThemeChange}/>
+        <MenuList onThemeChange={this.handleThemeChange} data={data}/>
       </Container>
     );
   }
