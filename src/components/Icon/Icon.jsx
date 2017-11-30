@@ -8,24 +8,24 @@ files.keys().forEach(files);
 const SymbolIcon = styled.svg`
   width: ${props => (props.size === 'small') ? '20px' : (props.size === 'medium') ? '40px' : (props.size === 'large') ? '60px' : '10px'};
   height: ${props => (props.size === 'small') ? '20px' : (props.size === 'medium') ? '40px' : (props.size === 'large') ? '60px' : '10px'};
-  fill: ${props => props.stroke ? 'transparent' : props.theme.primary ?  props.theme.primary : 'pink'};
-  stroke: ${props => props.stroke && (props.theme.primary) ? props.theme.primary : (props.stroke && (!props.theme.primary)) ? 'black': '' };
+  fill: ${props => props.asStroke ? 'transparent' : props.theme.black ?  props.theme.black: 'black'};
+  stroke: ${props => props.asStroke && (props.theme.black) ? props.theme.black : (props.asStroke && (!props.theme.black)) ? 'black': '' };
 `;
 
 const Icon = ({...props}) => {
   return (
-      <SymbolIcon size={props.size} stroke={props.stroke}>
+      <SymbolIcon size={props.size} asStroke={props.asStroke}>
         <use href={'#' + props.symbol}  aria-labelledby={props.name + ' icon'}/>
       </SymbolIcon>
     )
 };
 
 Icon.defaultProps = {
-    stroke: false
+    asStroke: false
 };
 
 Icon.propTypes = {
-    stroke: PropTypes.bool,
+    asStroke: PropTypes.bool,
     symbol: PropTypes.string.isRequired,
     size: PropTypes.oneOf(['small','medium', 'large']),
     name: PropTypes.string.isRequired

@@ -1,5 +1,7 @@
+const path = require('path');
+
 module.exports = {
-  title: 'React Icon Styleguide',
+  title: 'Styleguide',
   webpackConfig: require('./config/webpack.config.dev.js'),
   showCode: true,
   showUsage: true,
@@ -19,5 +21,8 @@ module.exports = {
         color: '#1c8598'
       }
     }
+  },
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, './styleguide/Wrapper')
   }
 };

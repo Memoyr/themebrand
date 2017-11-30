@@ -1,0 +1,3 @@
+```jsx
+<SideMenu  open={false} />
+```

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from './components/header/Header.jsx';
 import { marketTheme, spiritTheme, cloudTheme } from './constants/theme.js';
-import Button from './components/button/Button.jsx';
 import BrandBage from './components/BrandBadge/BrandBadge';
 import SideMenu from './components/SideMenu/SideMenu';
 
@@ -21,6 +20,7 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.handleMenuChange = this.handleMenuChange.bind(this);
+    this.handleChangeBrand = this.handleChangeBrand.bind(this);
 
     this.state = {
       brand: marketTheme,
@@ -29,11 +29,18 @@ class App extends Component {
     }
   }
 
-  handleMenuChange(e) {
-    this.setState({sideMenuOpen: e});
+  handleMenuChange(visibility) {
+    this.setState({sideMenuOpen: visibility});
   }
 
-  switchBrand(newBrand, newName) {
+  handleChangeBrand(newTheme) {
+    (newTheme === 'spirit') ? this.handleSwitchTheme(spiritTheme, 'S') :
+    (newTheme === 'market') ? this.handleSwitchTheme(marketTheme, 'M') :
+    (newTheme === 'cloud') ? this.handleSwitchTheme(cloudTheme, 'C') : '';
+
+  }
+
+  handleSwitchTheme(newBrand, newName) {
    this.setState({brand: newBrand, name: newName})
   }
 
@@ -42,14 +49,13 @@ class App extends Component {
     return (
       <ThemeProvider theme={this.state.brand}>
         <Container>
-          <Header brandName={this.state.name} color/>
+          <Header brandName={this.state.name}
+            onVisibilityChange={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
           <Content>
-            <Button onClick={() => this.switchBrand(spiritTheme, 'S')}>S</Button>
-            <Button onClick={() => this.switchBrand(cloudTheme, 'C')}>C</Button>
-            <Button onClick={() => this.switchBrand(marketTheme, 'M')}>M</Button>
 
-            <BrandBage onClick={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
-            <SideMenu open={this.state.sideMenuOpen} onVisibilityChange={this.handleMenuChange} />
+            <SideMenu open={this.state.sideMenuOpen} onVisibilityChange={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)}
+              onThemeChange={this.handleChangeBrand}
+             />
           </Content>
         </Container>
       </ThemeProvider>
@@ -59,3 +65,4 @@ class App extends Component {
 }
 
 export default App;
+//<BrandBage onClick={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
