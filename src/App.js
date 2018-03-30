@@ -4,6 +4,7 @@ import Header from './components/header/Header.jsx';
 import { marketTheme, spiritTheme, cloudTheme } from './constants/theme.js';
 import BrandBage from './components/BrandBadge/BrandBadge';
 import SideMenu from './components/SideMenu/SideMenu';
+import Card from './components/card/card';
 
 import './app.css';
 
@@ -13,6 +14,12 @@ const Container = styled.div`
 
 const Content = styled.div`
   margin: 0 5rem;
+  display: flex;
+`;
+
+const CardList = styled.div`
+  display: flex;
+  width: 100%;
 `;
 
 class App extends Component {
@@ -52,6 +59,12 @@ class App extends Component {
           <Header brandName={this.state.name}
             onVisibilityChange={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
           <Content>
+            <CardList>
+              <Card title="This is it"/>
+              <Card title="This is it"/>
+              <Card title="This is it"/>
+              <Card title="This is it"/>
+            </CardList>
 
             <SideMenu open={this.state.sideMenuOpen} onVisibilityChange={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)}
               onThemeChange={this.handleChangeBrand}
