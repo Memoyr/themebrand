@@ -9,17 +9,21 @@ import Card from './components/card/card';
 import './app.css';
 
 const Container = styled.div`
-  height: 100vh;
+  background-color: #f1f1f1;
 `;
 
 const Content = styled.div`
   margin: 0 5rem;
   display: flex;
+  padding: 8rem 0;
+
 `;
 
 const CardList = styled.div`
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 class App extends Component {
@@ -60,6 +64,10 @@ class App extends Component {
             onVisibilityChange={() => this.handleMenuChange(this.state.sideMenuOpen ? false : true)} />
           <Content>
             <CardList>
+              <Card title="This is it"/>
+              <Card title="This is it"/>
+              <Card title="This is it"/>
+              <Card title="This is it"/>
               <Card title="This is it"/>
               <Card title="This is it"/>
               <Card title="This is it"/>

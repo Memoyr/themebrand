@@ -8,21 +8,27 @@ import { rgba } from 'polished';
 const Bar = styled.header`
   background-color: ${props => props.theme.gradient ? props.theme.gradient : 'black'};
   height: 30px;
-  padding: 20px;
+  padding: 20px 0;
   color: white;
   margin-bottom: 2rem;
   display: flex;
+  box-shadow: 0px 2px 3px 0px rgba(179,179,179,0.35);
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 const Title = styled.h1`
 	font-size: 1.5em;
-  margin: 0;
+  margin: 0 2rem;
 	color: ${props => props.theme.primary};
+
 `;
 
 const AuthContainer = styled.div`
 	font-size: 1.5em;
-  margin: 0;
+  margin: 0 2rem;
 	color: ${props => props.theme.primary};
   margin-left: auto;
 `;
