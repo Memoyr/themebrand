@@ -14,7 +14,7 @@ const Block = styled.div`
   margin: .5rem;
 `;
 const Header = styled.div`
-  color: #fff;
+  color: ${props => props.theme.white};
   font-size: 13px;
   font-weight: 500;
   text-align: center;

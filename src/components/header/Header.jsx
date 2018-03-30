@@ -4,9 +4,10 @@ import styled from 'styled-components';
 import Icon from '../Icon/Icon.jsx';
 import { rgba } from 'polished';
 
+// background-color: ${props => props.theme.gradient ? props.theme.gradient : 'black'};
 
 const Bar = styled.header`
-  background-color: ${props => props.theme.gradient ? props.theme.gradient : 'black'};
+  background-color: ${props => props.theme.primary};
   height: 30px;
   padding: 20px 0;
   color: white;
@@ -22,8 +23,13 @@ const Bar = styled.header`
 const Title = styled.h1`
 	font-size: 1.5em;
   margin: 0 2rem;
-	color: ${props => props.theme.primary};
-
+	color: ${props => props.theme.white};
+  display: flex;
+  align-self: center;
+`;
+const TitleTxt = styled.span`
+  margin-left: .5rem;
+  align-self: center;
 `;
 
 const AuthContainer = styled.div`
@@ -40,6 +46,9 @@ const SettingButton = styled.button`
   box-shadow: none;
   width: 42px;
   height: 42px;
+  > svg {
+    transition: fill ease .4s;
+  }
 
   &:focus {
     outline: none;
@@ -48,7 +57,7 @@ const SettingButton = styled.button`
   &:hover {
     cursor: pointer;
     > svg {
-      stroke: ${props => props.theme.black ? rgba(props.theme.black, 0.6) : 'black'};
+      fill: ${props => props.theme.black ? rgba(props.theme.black, 0.6) : 'black'};
     }
   }
 
@@ -68,10 +77,13 @@ class Header extends React.Component {
   render() {
     return (
       <Bar>
-        <Title>{`Brand ${this.props.brandName}`}</Title>
+        <Title>
+          <Icon symbol="logo-placeholder" size="medium" name="logo-placeholder" />
+          <TitleTxt>{`Brand ${this.props.brandName}`}</TitleTxt>
+        </Title>
         <AuthContainer>
            <SettingButton onClick={this.handleChange} >
-             <Icon symbol="gear_20px-bkg-light" size="small" name="settings" asStroke />
+             <Icon symbol="gear" size="small" name="settings" />
            </SettingButton>
         </AuthContainer>
       </Bar>
